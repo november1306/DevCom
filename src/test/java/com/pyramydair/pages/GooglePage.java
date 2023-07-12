@@ -14,7 +14,7 @@ public class GooglePage extends BasePage {
     private final By searchButton = By.name("btnK");
     private final By linkResults = By.cssSelector("div.rc a");
 
-    public void GooglePage () {
+    public GooglePage () {
         waitOnPage();
     }
 
@@ -36,6 +36,6 @@ public class GooglePage extends BasePage {
     }
 
     public void waitOnPage() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
+        wait.until(ExpectedConditions.presenceOfElementLocated(searchButton));
     }
 }

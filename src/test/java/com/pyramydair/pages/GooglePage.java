@@ -1,15 +1,13 @@
 package com.pyramydair.pages;
 
-import com.pyramydair.DriverManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class GooglePage extends BasePage{
+public class GooglePage extends BasePage {
 
     public static final String GOOGLE_URL = "https://www.google.com";
     private final By searchBox = By.name("q");

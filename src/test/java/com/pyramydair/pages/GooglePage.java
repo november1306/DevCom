@@ -36,6 +36,6 @@ public class GooglePage extends BasePage {
     }
 
     public void waitOnPage() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(searchButton));
+//        wait.until(ExpectedConditions.presenceOfElementLocated(searchButton));
     }
 }

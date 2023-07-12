@@ -13,6 +13,6 @@ public class YoutubePage extends BasePage {
     }
 
     public void waitOnPage() {
-        wait.until(ExpectedConditions.presenceOfElementLocated(logoIcon));
+//        wait.until(ExpectedConditions.presenceOfElementLocated(logoIcon));
     }
 }

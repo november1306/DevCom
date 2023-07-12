@@ -126,5 +126,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:junit-xml-formatter:0.2.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:ci-environment:9.2.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:cucumber-junit-platform-engine:7.13.0" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: io.github.bonigarcia:selenium-jupiter:4.3.3" level="project" />
   </component>
 </module>

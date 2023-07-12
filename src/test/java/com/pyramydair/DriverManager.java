@@ -1,6 +1,9 @@
 package com.pyramydair;
 
+import io.github.bonigarcia.seljup.SeleniumJupiter;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -12,9 +15,12 @@ import java.util.Properties;
 
 public class DriverManager {
     private static volatile WebDriver driver;
+    @RegisterExtension
+    static SeleniumJupiter seleniumJupiter = new SeleniumJupiter();
 
     private DriverManager() {
     }
+
 
     public static WebDriver getDriver() {
         WebDriver localDriver = driver;
@@ -32,12 +38,15 @@ public class DriverManager {
 
                     switch (browser) {
                         case "chrome":
+                            seleniumJupiter.getConfig().enableScreenshotWhenFailure();
+                            seleniumJupiter.getConfig().setOutputFolder("target/screenshots/");
                             WebDriverManager.chromedriver().setup();
-                            ChromeOptions chromeOptions = new ChromeOptions();
-                            chromeOptions.addArguments("--start-maximized");
-                            chromeOptions.addArguments("--headless");
+                            ChromeOptions options = new ChromeOptions();
+                            options.addArguments("--no-sandbox");
+                            options.addArguments("--disable-dev-shm-usage");
+                            options.addArguments("--window-size=1920,1080");
 
-                            localDriver = new ChromeDriver(chromeOptions);
+                            localDriver = new ChromeDriver(options);
                             break;
                         case "firefox":
                             WebDriverManager.firefoxdriver().setup();

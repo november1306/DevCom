@@ -3,6 +3,7 @@ package com.pyramydair;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.io.IOException;
@@ -32,7 +33,11 @@ public class DriverManager {
                     switch (browser) {
                         case "chrome":
                             WebDriverManager.chromedriver().setup();
-                            localDriver = new ChromeDriver();
+                            ChromeOptions chromeOptions = new ChromeOptions();
+                            chromeOptions.addArguments("--start-maximized");
+                            chromeOptions.addArguments("--headless");
+
+                            localDriver = new ChromeDriver(chromeOptions);
                             break;
                         case "firefox":
                             WebDriverManager.firefoxdriver().setup();

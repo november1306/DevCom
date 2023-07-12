@@ -1,6 +1,7 @@
 package com.pyramydair.steps;
 
 import com.pyramydair.pages.GooglePage;
+import com.pyramydair.pages.YoutubePage;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Assertions;
 
 public class GoogleSearchSteps {
     private GooglePage googlePage;
+    private YoutubePage youtubePage;
 
     @Given("I am on the Google homepage")
     public void navigateToGoogleHomepage() {
@@ -28,7 +30,9 @@ public class GoogleSearchSteps {
 
     @Then("I should be redirected to the YouTube page")
     public void verifyRedirectedToYouTubePage() {
-        String currentUrl = googlePage.getCurrentUrl();
-        Assertions.assertTrue(currentUrl.contains("youtube.com"), "Not redirected to the YouTube page");
+        youtubePage = new YoutubePage();
+
+        String currentUrl = youtubePage.getCurrentUrl();
+        Assertions.assertTrue(currentUrl.contains("youtube.com"), "Not redirected to the YouTube page: " + currentUrl);
     }
 }

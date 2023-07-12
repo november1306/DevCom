@@ -14,6 +14,10 @@ public class GooglePage extends BasePage {
     private final By searchButton = By.name("btnK");
     private final By linkResults = By.cssSelector("div.rc a");
 
+    public void GooglePage () {
+        waitOnPage();
+    }
+
     public void navigateTo() {
         driver.get(GOOGLE_URL);
     }
@@ -25,9 +29,13 @@ public class GooglePage extends BasePage {
     }
 
     public void clickLink(String linkText) {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.partialLinkText(linkText)));
         WebElement link = driver.findElement(By.partialLinkText(linkText));
         link.click();
+    }
+
+    public void waitOnPage() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(searchButton));
     }
 }

@@ -13,12 +13,12 @@ public abstract class BasePage {
 
     public BasePage() {
         this.driver = DriverManager.getDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(15));
     }
 
     public String getCurrentUrl() {
         try {
-            Thread.sleep(500);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

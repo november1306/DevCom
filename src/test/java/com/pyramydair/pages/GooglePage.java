@@ -3,9 +3,6 @@ package com.pyramydair.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class GooglePage extends BasePage {
 
@@ -14,7 +11,7 @@ public class GooglePage extends BasePage {
     private final By searchButton = By.name("btnK");
     private final By linkResults = By.cssSelector("div.rc a");
 
-    public GooglePage () {
+    public GooglePage() {
         waitOnPage();
     }
 
@@ -36,6 +33,6 @@ public class GooglePage extends BasePage {
     }
 
     public void waitOnPage() {
-//        wait.until(ExpectedConditions.presenceOfElementLocated(searchButton));
+        wait.until(ExpectedConditions.presenceOfElementLocated(searchButton));
     }
 }

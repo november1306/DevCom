@@ -27,7 +27,7 @@ public class DriverManager {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    String browser = properties.getProperty("browser");
+                    String browser = System.getProperty("browser", properties.getProperty("browser", "chrome"));
 
                     switch (browser) {
                         case "chrome":
@@ -47,6 +47,7 @@ public class DriverManager {
         }
         return localDriver;
     }
+
 
     public static void quitDriver() {
         WebDriver localDriver = driver;

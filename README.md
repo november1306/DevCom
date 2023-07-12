@@ -1,18 +1,16 @@
 # DevCom test task
 
+
+
 to execute all tests in command line use maven
 
 `mvn test`
 
 for single test execution:
 
-`mvn clean test -Dtest=ToDoMvcTest`
+`mvn test -Dtest=RunCucumberTest`
 
-in case there's no maven available, another option is to use
-running-tests-console-launcher
+to choose between firefox and chrome driver use:
 
-[https://junit.org/junit5/docs/5.0.0-M5/user-guide/#running-tests-console-launcher]()
-
-`java -jar junit-platform-console-standalone-<version>.jar`
-
-or just open project in IDE and run tests
+`mvn test -Dbrowser=firefox`
+also default browser is set in cucumber.properties
